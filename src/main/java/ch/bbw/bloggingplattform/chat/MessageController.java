@@ -1,7 +1,6 @@
 package ch.bbw.bloggingplattform.chat;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/messages")
-@CrossOrigin(origins = "http://localhost:5173") // Anpassen je nach Frontend-Port
+@CrossOrigin(origins = "http://localhost:5173")
 public class MessageController {
 
     @Autowired

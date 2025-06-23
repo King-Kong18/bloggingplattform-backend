@@ -39,9 +39,9 @@ public class UserController {
     public ResponseEntity<BlogUser> getUser(@PathVariable long id) {
         Optional<BlogUser> user = userRepository.findById(id);
         return user.map(value -> ResponseEntity
-                .status(HttpStatus.OK)
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(value))
+                        .status(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(value))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -96,8 +96,6 @@ public class UserController {
 
         BlogUser currentUser = currentUserOpt.get();
 
-        // Prüfen, ob der neue Benutzername bereits von einem anderen Benutzer verwendet
-        // wird
         Optional<BlogUser> userWithSameName = userRepository.findByUsername(newUser.getUsername());
 
         if (userWithSameName.isPresent() && !userWithSameName.get().getId().equals(currentUser.getId())) {
@@ -132,7 +130,7 @@ public class UserController {
             }
         }
 
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login fehlgeschlagen");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falsche Anmeldedaten");
     }
 
     private String hashPassword(String password) {
