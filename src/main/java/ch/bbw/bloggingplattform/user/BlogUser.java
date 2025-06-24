@@ -39,13 +39,6 @@ public class BlogUser {
 
     }
 
-    public void removeAllLikes() {
-        for (Blog blog : likedBlogs) {
-            blog.getLikedByUsers().remove(this);
-        }
-        likedBlogs.clear();
-    }
-
     public Long getId() {
         return id;
     }
